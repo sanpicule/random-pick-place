@@ -1,0 +1,150 @@
+export type Station = {
+  name: string
+  ward: string
+}
+
+export const STATIONS: Station[] = [
+  { name: '末広町', ward: '千代田区' },
+  { name: '淡路町', ward: '千代田区' },
+  { name: '小川町', ward: '千代田区' },
+  { name: '竹橋', ward: '千代田区' },
+  { name: '麹町', ward: '千代田区' },
+
+  { name: '八丁堀', ward: '中央区' },
+  { name: '宝町', ward: '中央区' },
+  { name: '新富町', ward: '中央区' },
+  { name: '小伝馬町', ward: '中央区' },
+  { name: '東日本橋', ward: '中央区' },
+  { name: '馬喰横山', ward: '中央区' },
+  { name: '浜町', ward: '中央区' },
+
+  { name: '芝公園', ward: '港区' },
+  { name: '御成門', ward: '港区' },
+  { name: '白金高輪', ward: '港区' },
+  { name: '白金台', ward: '港区' },
+  { name: '泉岳寺', ward: '港区' },
+
+  { name: '護国寺', ward: '文京区' },
+  { name: '本駒込', ward: '文京区' },
+  { name: '千石', ward: '文京区' },
+  { name: '白山', ward: '文京区' },
+
+  { name: '稲荷町', ward: '台東区' },
+  { name: '入谷', ward: '台東区' },
+
+  { name: '本所吾妻橋', ward: '墨田区' },
+  { name: '東あずま', ward: '墨田区' },
+  { name: '小村井', ward: '墨田区' },
+  { name: '八広', ward: '墨田区' },
+
+  { name: '潮見', ward: '江東区' },
+  { name: '辰巳', ward: '江東区' },
+  { name: '木場', ward: '江東区' },
+  { name: '南砂町', ward: '江東区' },
+  { name: '亀戸水神', ward: '江東区' },
+
+  { name: '青物横丁', ward: '品川区' },
+  { name: '鮫洲', ward: '品川区' },
+  { name: '立会川', ward: '品川区' },
+  { name: '大森海岸', ward: '品川区' },
+  { name: '新馬場', ward: '品川区' },
+
+  { name: '西小山', ward: '目黒区' },
+  { name: '洗足', ward: '目黒区' },
+  { name: '祐天寺', ward: '目黒区' },
+
+  { name: '糀谷', ward: '大田区' },
+  { name: '梅屋敷', ward: '大田区' },
+  { name: '雑色', ward: '大田区' },
+  { name: '六郷土手', ward: '大田区' },
+  { name: '武蔵新田', ward: '大田区' },
+  { name: '矢口渡', ward: '大田区' },
+  { name: '池上', ward: '大田区' },
+  { name: '雪が谷大塚', ward: '大田区' },
+  { name: '長原', ward: '大田区' },
+  { name: '千鳥町', ward: '大田区' },
+
+  { name: '松陰神社前', ward: '世田谷区' },
+  { name: '世田谷', ward: '世田谷区' },
+  { name: '上町', ward: '世田谷区' },
+  { name: '豪徳寺', ward: '世田谷区' },
+  { name: '梅ヶ丘', ward: '世田谷区' },
+  { name: '池ノ上', ward: '世田谷区' },
+  { name: '駒沢大学', ward: '世田谷区' },
+  { name: '桜新町', ward: '世田谷区' },
+  { name: '用賀', ward: '世田谷区' },
+  { name: '九品仏', ward: '世田谷区' },
+  { name: '奥沢', ward: '世田谷区' },
+  { name: '等々力', ward: '世田谷区' },
+  { name: '上野毛', ward: '世田谷区' },
+
+  { name: '代々木八幡', ward: '渋谷区' },
+  { name: '参宮橋', ward: '渋谷区' },
+  { name: '幡ヶ谷', ward: '渋谷区' },
+  { name: '初台', ward: '渋谷区' },
+  { name: '広尾', ward: '渋谷区' },
+
+  { name: '新中野', ward: '中野区' },
+  { name: '新井薬師前', ward: '中野区' },
+  { name: '沼袋', ward: '中野区' },
+  { name: '野方', ward: '中野区' },
+  { name: '都立家政', ward: '中野区' },
+
+  { name: '方南町', ward: '杉並区' },
+  { name: '西永福', ward: '杉並区' },
+  { name: '浜田山', ward: '杉並区' },
+  { name: '高井戸', ward: '杉並区' },
+  { name: '井荻', ward: '杉並区' },
+  { name: '下井草', ward: '杉並区' },
+  { name: '久我山', ward: '杉並区' },
+
+  { name: '椎名町', ward: '豊島区' },
+  { name: '要町', ward: '豊島区' },
+  { name: '千川', ward: '豊島区' },
+  { name: '北池袋', ward: '豊島区' },
+  { name: '下板橋', ward: '豊島区' },
+  { name: '東長崎', ward: '豊島区' },
+
+  { name: '王子神谷', ward: '北区' },
+  { name: '十条', ward: '北区' },
+  { name: '東十条', ward: '北区' },
+
+  { name: '町屋', ward: '荒川区' },
+  { name: '三ノ輪橋', ward: '荒川区' },
+  { name: '荒川区役所前', ward: '荒川区' },
+
+  { name: '中板橋', ward: '板橋区' },
+  { name: '大山', ward: '板橋区' },
+  { name: '上板橋', ward: '板橋区' },
+  { name: '東武練馬', ward: '板橋区' },
+  { name: '新板橋', ward: '板橋区' },
+  { name: '本蓮沼', ward: '板橋区' },
+  { name: '志村坂上', ward: '板橋区' },
+  { name: '志村三丁目', ward: '板橋区' },
+
+  { name: '練馬春日町', ward: '練馬区' },
+  { name: '豊島園', ward: '練馬区' },
+  { name: '練馬高野台', ward: '練馬区' },
+  { name: '中村橋', ward: '練馬区' },
+  { name: '富士見台', ward: '練馬区' },
+  { name: '平和台', ward: '練馬区' },
+  { name: '氷川台', ward: '練馬区' },
+
+  { name: '小菅', ward: '足立区' },
+  { name: '五反野', ward: '足立区' },
+  { name: '梅島', ward: '足立区' },
+  { name: '北綾瀬', ward: '足立区' },
+  { name: '扇大橋', ward: '足立区' },
+  { name: '高野', ward: '足立区' },
+
+  { name: '京成立石', ward: '葛飾区' },
+  { name: '四ツ木', ward: '葛飾区' },
+  { name: '堀切菖蒲園', ward: '葛飾区' },
+  { name: '新柴又', ward: '葛飾区' },
+
+  { name: '船堀', ward: '江戸川区' },
+  { name: '瑞江', ward: '江戸川区' },
+  { name: '篠崎', ward: '江戸川区' },
+  { name: '平井', ward: '江戸川区' },
+  { name: '京成小岩', ward: '江戸川区' }
+]
