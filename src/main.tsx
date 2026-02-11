@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './style.css'
 
@@ -249,12 +249,6 @@ function hapticFeedback() {
 function App() {
   const [currentStation, setCurrentStation] = useState<Station>(() => pickRandom(stations))
   const [isAnimating, setIsAnimating] = useState(false)
-  const [history, setHistory] = useState<Station[]>([])
-
-  useEffect(() => {
-    // Add initial station to history
-    setHistory([currentStation])
-  }, [])
 
   const pickNewStation = () => {
     hapticFeedback()
@@ -262,7 +256,6 @@ function App() {
     setTimeout(() => {
       const next = pickRandom(stations, currentStation)
       setCurrentStation(next)
-      setHistory(prev => [next, ...prev].slice(0, 10)) // Keep last 10
       setIsAnimating(false)
     }, 200)
   }
