@@ -208,15 +208,20 @@ const stations: Station[] = [
   { name: "高尾", ward: "八王子市", category: "住宅地" }
 ]
 
-const CATEGORIES = [
-  'カフェ',
-  'ランチ',
-  '居酒屋',
-  '喫茶店',
-  'ベーカリー',
-  'スイーツ',
-  '観光',
-  '公園',
+interface Category {
+  name: string
+  icon: string
+}
+
+const CATEGORIES: Category[] = [
+  { name: 'カフェ', icon: '☕' },
+  { name: 'ランチ', icon: '🍱' },
+  { name: '居酒屋', icon: '🍺' },
+  { name: '喫茶店', icon: '🫖' },
+  { name: 'ベーカリー', icon: '🥐' },
+  { name: 'スイーツ', icon: '🍰' },
+  { name: '観光', icon: '🗼' },
+  { name: '公園', icon: '🌳' },
 ]
 
 function pickRandom<T>(arr: T[], exclude?: T): T {
@@ -279,57 +284,95 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1>ランダム駅さんぽ</h1>
-      <p className="subtitle">
-        東京23区の、ちょっとマイナーな駅を提案します<br />
-        <span className="swipe-hint">→ 右スワイプで次の駅へ</span>
-      </p>
-
-      <div 
-        className={`station ${isAnimating ? 'picking' : ''}`}
-        onTouchStart={handleSwipe}
-      >
-        <div className="station-name">{currentStation.name}</div>
-        <div className="station-ward">{currentStation.ward}</div>
-      </div>
-
-      <div className="actions">
-        <button 
-          className="primary" 
-          onClick={pickNewStation}
-        >
-          <span className="button-text">ランダムにピック</span>
-          <span className="button-icon">🎲</span>
-        </button>
-        <a 
-          className="secondary" 
-          href={googleMapsLink(currentStation)} 
-          target="_blank" 
-          rel="noopener"
-        >
-          <span className="button-text">駅周辺を地図で見る</span>
-          <span className="button-icon">📍</span>
-        </a>
-      </div>
-
-      <div className="category-section">
-        <h3 className="category-title">カテゴリから探す</h3>
-        <div className="category-list">
-          {CATEGORIES.map((category) => (
-            <a 
-              key={category}
-              className="chip" 
-              href={googleMapsLink(currentStation, category)} 
-              target="_blank" 
-              rel="noopener"
-            >
-              <span className="chip-text">{category}</span>
-            </a>
-          ))}
+    <>
+      <header className="header">
+        <div className="header-content">
+          <h1 className="app-title">ランダム駅さんぽ</h1>
+          <span className="app-badge">Beta</span>
         </div>
-      </div>
-    </div>
+      </header>
+
+      <main className="container">
+        <section className="hero-section fade-in">
+          <h2 className="hero-title">東京の隠れた魅力を発見</h2>
+          <p className="hero-subtitle">
+            東京23区の、あまり知られていない駅をランダムに提案します。<br />
+            新しい発見があるかも？
+          </p>
+          <div className="feature-badge">
+            <span>🎲</span>
+            <span>{stations.length}駅から選択</span>
+          </div>
+        </section>
+
+        <section className="station-wrapper fade-in-delay-1">
+          <div 
+            className={`station ${isAnimating ? 'picking' : ''}`}
+            onTouchStart={handleSwipe}
+            onClick={pickNewStation}
+          >
+            <div className="station-label">今日のおすすめ</div>
+            <div className="station-name">{currentStation.name}</div>
+            <div className="station-ward">{currentStation.ward}</div>
+            <div className="station-decoration"></div>
+          </div>
+        </section>
+
+        <section className="actions fade-in-delay-2">
+          <button 
+            className="primary" 
+            onClick={pickNewStation}
+            aria-label="ランダムにピック"
+          >
+            <span className="button-icon">🎲</span>
+            <span className="button-text">ランダムにピック</span>
+          </button>
+          <a 
+            className="secondary" 
+            href={googleMapsLink(currentStation)} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="駅周辺を地図で見る"
+          >
+            <span className="button-icon">📍</span>
+            <span className="button-text">駅周辺を地図で見る</span>
+          </a>
+        </section>
+
+        <section className="category-section fade-in-delay-3">
+          <div className="category-header">
+            <h3 className="category-title">カテゴリから探す</h3>
+            <p className="category-description">気になるカテゴリをタップして周辺を検索</p>
+          </div>
+          <div className="category-grid">
+            {CATEGORIES.map((category) => (
+              <a 
+                key={category.name}
+                className="category-item" 
+                href={googleMapsLink(currentStation, category.name)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label={`${currentStation.name}の${category.name}を検索`}
+              >
+                <span className="category-icon">{category.icon}</span>
+                <span className="category-text">{category.name}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div className="footer-content">
+          <p className="footer-text">
+            東京の隠れた魅力を発見するWebアプリ
+          </p>
+          <p className="footer-text">
+            <small>© 2026 ランダム駅さんぽ</small>
+          </p>
+        </div>
+      </footer>
+    </>
   )
 }
 
